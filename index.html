@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百晓生 - 开源项目</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+    body {
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .terminal {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .terminal-header {
+      background: #161b22;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #30363d;
+    }
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .terminal-dot.red { background: #ff5f56; }
+    .terminal-dot.yellow { background: #ffbd2e; }
+    .terminal-dot.green { background: #27ca40; }
+    .terminal-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    .skill-badge {
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .skill-badge:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #38bdf8;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .accent-blue {
+      color: #38bdf8;
+    }
+    .accent-green {
+      color: #22c55e;
+    }
+    .bg-accent-blue {
+      background-color: #38bdf8;
+    }
+    .text-muted {
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body class="bg-[#0d1117]">
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 w-full bg-[#0d1117]/90 backdrop-blur-xl border-b border-[#30363d] z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="#home" class="text-2xl font-bold text-white">百晓生</a>
+        <div class="flex items-center space-x-8">
+          <a href="#about" class="nav-link text-gray-400 hover:text-white transition">关于</a>
+          <a href="#projects" class="nav-link text-gray-400 hover:text-white transition">项目</a>
+          <a href="#skills" class="nav-link text-gray-400 hover:text-white transition">技术栈</a>
+          <a href="#contact" class="nav-link text-gray-400 hover:text-white transition">联系</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Terminal 风格 -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative">
+    <div class="max-w-3xl mx-auto px-4 relative z-10">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <span class="ml-4 text-gray-400 text-sm mono">user@baixiaosheng:~</span>
+        </div>
+        <div class="terminal-body">
+          <div class="text-gray-300 mb-4">
+            <span class="text-green-400">$</span> <span class="accent-blue">whoami</span>
+          </div>
+          <div class="text-white mb-6 pl-4">
+            <div class="text-5xl font-bold mb-2">百晓生</div>
+            <div class="text-gray-400 text-lg">开源开发者</div>
+          </div>
+          <div class="text-gray-300 mb-4">
+            <span class="text-green-400">$</span> <span class="accent-blue">cat</span> description.txt
+          </div>
+          <div class="text-gray-300 mb-6 pl-4 leading-relaxed">
+            热衷于开源技术，专注于构建实用的开发工具和服务。<br>
+            前端 · 后端 · 数据库 · 云服务
+          </div>
+          <div class="text-gray-300 mb-4">
+            <span class="text-green-400">$</span> <span class="accent-blue">ls</span> ./skills
+          </div>
+          <div class="text-gray-400 mb-6 pl-4 mono text-sm">
+            Vue/TypeScript Java/Python/Go MySQL/Redis AWS/Azure/GCP
+          </div>
+          <div class="text-gray-300 mb-4">
+            <span class="text-green-400">$</span> <span class="accent-blue">echo</span> "Open Source Evangelist"
+          </div>
+          <div class="text-gray-300 mb-8 pl-4">
+            <span class="text-gray-400">Open Source Evangelist</span>
+          </div>
+          <div class="flex justify-start space-x-4 mt-8">
+            <a href="https://github.com/jokerknight" target="_blank"
+               class="inline-flex items-center bg-accent-blue text-black px-6 py-3 rounded font-semibold hover:opacity-90 transition">
+              <i class="fab fa-github mr-2"></i>GitHub
+            </a>
+            <a href="#projects" class="inline-flex items-center text-[#38bdf8] hover:text-white transition font-semibold">
+              查看项目 <span class="ml-2">→</span>
+            </a>
+          </div>
+          <div class="mt-8 flex items-center text-gray-500">
+            <span class="text-green-400">$</span>
+            <span class="ml-2 animate-pulse">_</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我 -->
+  <section id="about" class="py-24 bg-[#161b22]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4 text-white">关于我</h2>
+      <p class="text-gray-500 text-center mb-16 text-lg">About Me</p>
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            我是百晓生，一个热爱开源技术的开发者。我致力于创建高质量的开源项目，
+            为开发社区贡献自己的力量。
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            我的技术栈涵盖了前端、后端、数据库和云服务等多个领域，能够独立完成
+            全栈项目的开发和部署。
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            欢迎关注我的开源项目，也欢迎交流和合作！
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="glass-card text-white p-8 rounded-2xl card-hover">
+            <div class="text-5xl font-bold mb-2 accent-blue">3+</div>
+            <div class="text-sm text-gray-400">开源项目</div>
+          </div>
+          <div class="glass-card text-white p-8 rounded-2xl card-hover">
+            <div class="text-5xl font-bold mb-2 accent-blue">10+</div>
+            <div class="text-sm text-gray-400">技术栈</div>
+          </div>
+          <div class="glass-card text-white p-8 rounded-2xl card-hover">
+            <div class="text-5xl font-bold mb-2 accent-blue">3+</div>
+            <div class="text-sm text-gray-400">云平台</div>
+          </div>
+          <div class="glass-card text-white p-8 rounded-2xl card-hover">
+            <div class="text-5xl font-bold mb-2 accent-blue">100%</div>
+            <div class="text-sm text-gray-400">开源</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目展示 -->
+  <section id="projects" class="py-24 bg-[#0d1117]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4 text-white">开源项目</h2>
+      <p class="text-gray-500 text-center mb-16 text-lg">Open Source Projects</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 bg-[#161b22] flex items-center justify-center relative border-b border-[#30363d]">
+            <i class="fas fa-server text-gray-500 text-6xl"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold mb-3 text-white">SubscribeManager</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">A Lightweight & Simple node subscribe manager</p>
+            <a href="https://github.com/jokerknight/SubscribeManager" target="_blank"
+               class="inline-flex items-center text-[#38bdf8] hover:text-white font-semibold transition">
+              查看项目 <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 bg-[#161b22] flex items-center justify-center relative border-b border-[#30363d]">
+            <i class="fas fa-shield-alt text-gray-500 text-6xl"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold mb-3 text-white">ProxyCli</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">Lightweight proxy management script for Bash and Zsh</p>
+            <a href="https://github.com/jokerknight/ProxyCli" target="_blank"
+               class="inline-flex items-center text-[#38bdf8] hover:text-white font-semibold transition">
+              查看项目 <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 bg-[#161b22] flex items-center justify-center relative border-b border-[#30363d]">
+            <i class="fas fa-desktop text-gray-500 text-6xl"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold mb-3 text-white">sysinfo-cli</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">Lightweight system monitor for debian/ubuntu base system</p>
+            <a href="https://github.com/jokerknight/sysinfo-cli" target="_blank"
+               class="inline-flex items-center text-[#38bdf8] hover:text-white font-semibold transition">
+              查看项目 <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技术栈 -->
+  <section id="skills" class="py-24 bg-[#161b22]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4 text-white">技术栈</h2>
+      <p class="text-gray-500 text-center mb-16 text-lg">Tech Stack</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Frontend -->
+        <div class="glass-card rounded-2xl p-8">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-lg bg-[#38bdf8]/10 flex items-center justify-center mr-4">
+              <i class="fas fa-palette text-[#38bdf8] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">前端</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Vue</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">TypeScript</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Android</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">iOS</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Flutter</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="glass-card rounded-2xl p-8">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-lg bg-[#22c55e]/10 flex items-center justify-center mr-4">
+              <i class="fas fa-server text-[#22c55e] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">后端</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Java</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Python</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Go</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Node.js</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">PHP</span>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="glass-card rounded-2xl p-8">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center mr-4">
+              <i class="fas fa-database text-[#f59e0b] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">数据库</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">MySQL</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Redis</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Merlin</span>
+          </div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="glass-card rounded-2xl p-8">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-lg bg-[#ec4899]/10 flex items-center justify-center mr-4">
+              <i class="fas fa-cloud text-[#ec4899] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">云服务</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">AWS</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">Azure</span>
+            <span class="skill-badge text-gray-300 px-4 py-2 rounded-lg text-sm">GCP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section id="contact" class="py-24 bg-[#0d1117]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-center mb-4 text-white">联系方式</h2>
+      <p class="text-gray-500 text-center mb-16 text-lg">Get in Touch</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="mailto:androidchenqinfeng@gmail.com" class="glass-card rounded-2xl p-8 card-hover">
+          <div class="w-16 h-16 mx-auto mb-6 bg-[#38bdf8]/10 rounded-xl flex items-center justify-center">
+            <i class="fas fa-envelope text-[#38bdf8] text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3 text-lg">邮箱</h3>
+          <p class="text-gray-400 text-sm">androidchenqinfeng@gmail.com</p>
+        </a>
+
+        <div class="glass-card rounded-2xl p-8 card-hover">
+          <div class="w-16 h-16 mx-auto mb-6 bg-[#22c55e]/10 rounded-xl flex items-center justify-center">
+            <i class="fab fa-weixin text-[#22c55e] text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3 text-lg">微信公众号</h3>
+          <p class="text-gray-400 text-sm">百晓生开源</p>
+        </div>
+
+        <a href="https://www.baixiaosheng.de" target="_blank" class="glass-card rounded-2xl p-8 card-hover">
+          <div class="w-16 h-16 mx-auto mb-6 bg-[#f59e0b]/10 rounded-xl flex items-center justify-center">
+            <i class="fas fa-blog text-[#f59e0b] text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3 text-lg">个人博客</h3>
+          <p class="text-gray-400 text-sm">www.baixiaosheng.de</p>
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <a href="https://github.com/jokerknight" target="_blank" class="inline-flex items-center bg-accent-blue text-black px-8 py-4 rounded-full font-semibold hover:opacity-90 transition">
+          <i class="fab fa-github text-2xl mr-3"></i>
+          关注我的 GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#161b22] border-t border-[#30363d] text-white py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-gray-400 text-lg mb-2">© 2024 百晓生. All rights reserved.</p>
+      <p class="text-gray-500">热衷开源，专注技术</p>
+    </div>
+  </footer>
+
+  <script>
+    // 平滑滚动 - 修复版
+    document.addEventListener('DOMContentLoaded', function() {
+      const headerOffset = 80; // 导航栏高度
+
+      console.log('✓ 脚本已加载，准备绑定锚点事件');
+
+      // 处理锚点点击
+      const anchors = document.querySelectorAll('a[href^="#"]');
+      console.log(`✓ 找到 ${anchors.length} 个锚点链接`);
+
+      anchors.forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          // 使用 hash 属性获取纯锚点（如 #about），而不是完整 URL
+          const targetId = this.hash || '#home';
+          console.log(`\n[锚点点击] 目标: ${targetId}`);
+
+          // 处理特殊情况：#home 返回顶部
+          if (targetId === '#home') {
+            console.log('[滚动到] 顶部 (0px)');
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+            return;
+          }
+
+          // 处理其他锚点
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            console.log(`[找到元素] ${targetId}`);
+            console.log(`[当前滚动] ${window.pageYOffset}px`);
+            console.log(`[元素位置] ${elementPosition}px`);
+            console.log(`[目标位置] ${offsetPosition}px`);
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            console.log('[执行] 平滑滚动完成');
+          } else {
+            console.error(`[错误] 未找到元素: ${targetId}`);
+          }
+        });
+      });
+
+      console.log('✓ 所有锚点事件已绑定');
+    });
+  </script>
+</body>
+</html>
