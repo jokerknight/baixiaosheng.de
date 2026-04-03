@@ -8,11 +8,11 @@
 - 云服务：AWS + Azure + GCP
 
 ## Github首页
-[baixiaosheng](https://github.com/jokerknight)
+[baixiaosheng](https://github.com/baixiaoshengofficial)
 ## 项目列表
-- [SubscribeManager](https://github.com/jokerknight/SubscribeManager)
-- [ProxyCli](https://github.com/jokerknight/ProxyCli)
-- [sysinfo-cli](https://github.com/jokerknight/sysinfo-cli)
+- [SubscribeManager](https://github.com/baixiaoshengofficial/SubscribeManager)
+- [ProxyCli](https://github.com/baixiaoshengofficial/ProxyCli)
+- [sysinfo-cli](https://github.com/baixiaoshengofficial/sysinfo-cli)
 ## 项目介绍
 - SubscribeManager：A Lightweight & Simple node subscribe manager.
 - ProxyCli：A lightweight, powerful proxy management script for Bash and Zsh, onekey config http_proxy,https_proxy,socks5_proxy,all_proxy by cli.
